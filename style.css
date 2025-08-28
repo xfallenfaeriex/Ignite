@@ -579,7 +579,8 @@ header {
 }
 
 .council-card button {
-  align-self: center;
+  ali
+    gn-self: center;
   background-color: var(--surface-color);
   color: var(--text-color);
   border: 1px solid var(--primary-color);
@@ -602,4 +603,15 @@ footer {
   background-color: var(--surface-color);
   color: var(--muted-text-color);
   font-size: 0.8rem;
+}
+
+/* Display the Ignite logo as background image for nav logo */
+.logo a {
+  display: inline-block;
+  width: 180px;
+  height: 60px;
+  background-image: url('IgniteLogo_color.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
 }
