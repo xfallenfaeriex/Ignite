@@ -1,5 +1,5 @@
 /* Root variables for the Ignite guild website.  These colours and sizes are used throughout the site to maintain a cohesive look and feel. */
-:root {
+
   --primary-color: #e67e22;        /* warm orange for primary accents */
   --secondary-color: #d35400;      /* slightly darker orange */
   --accent-color: #f39c12;         /* bright yellow for highlights */
