@@ -1,0 +1,605 @@
+/* Root variables for the Ignite guild website.  These colours and sizes are used throughout the site to maintain a cohesive look and feel. */
+:root {
+  --primary-color: #e67e22;        /* warm orange for primary accents */
+  --secondary-color: #d35400;      /* slightly darker orange */
+  --accent-color: #f39c12;         /* bright yellow for highlights */
+  --background-color: #121212;     /* dark background for contrast */
+  --surface-color: #1e1e1e;        /* dark surface for cards and nav */
+  --text-color: #f5f5f5;          /* light text colour */
+  --muted-text-color: #aaaaaa;     /* muted text for descriptions */
+  --radius: 8px;                   /* consistent border radius */
+}
+
+/* Global styles reset default margins and apply a comfortable base font.  The chosen font is loaded via Google Fonts in each HTML page. */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Container helps centre content and limits width on large screens. */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Navigation styles.  The nav uses a flex layout for horizontal alignment on large screens and collapses into a hamburger menu on small screens. */
+header {
+  background-color: var(--surface-color);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: relative;
+}
+
+.logo a {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+/* Hamburger menu for mobile.  Hidden on larger screens and revealed on widths below 768px. */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-color);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle-label span::before {
+  top: -8px;
+}
+
+.nav-toggle-label span::after {
+  top: 8px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    background-color: var(--surface-color);
+    display: none;
+    padding: 1rem 0;
+  }
+
+  .nav-links li {
+    border-bottom: 1px solid var(--background-color);
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-toggle:checked + .nav-toggle-label + .nav-links {
+    display: flex;
+  }
+
+  .nav-toggle-label {
+    display: block;
+  }
+}
+
+/* Hero section uses the fire background and a dark overlay to ensure text readability. */
+.hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url('../images/flames_bg.png');
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+/* Primary and secondary button styles. */
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius);
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+}
+
+.btn-secondary {
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  border: 1px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+/* Highlights section for quick feature call‑outs on the homepage. */
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.highlight-card {
+  flex: 1 1 300px;
+  background-color: var(--surface-color);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+.highlight-card:hover {
+  transform: translateY(-5px);
+}
+
+.highlight-card h3 {
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+/* Page header for internal pages. */
+.page-header {
+  text-align: center;
+  padding: 3rem 0 1rem;
+}
+
+.page-header h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  color: var(--muted-text-color);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Event list styles.  Cards display date, time, location and description. */
+.event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.event-card {
+  background-color: var(--surface-color);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.event-card .date {
+  width: 80px;
+  text-align: center;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+}
+
+.event-card .date .day {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.event-card .date .month {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.event-card .details h4 {
+  margin: 0 0 0.5rem;
+  color: var(--primary-color);
+}
+
+.event-card .details p {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+}
+
+/* Calendar styles.  A CSS grid is used to create the calendar layout. */
+.calendar-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.calendar-controls button {
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  border: 1px solid var(--primary-color);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.calendar-controls button:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+#calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.calendar-day {
+  background-color: var(--surface-color);
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  text-align: right;
+  min-height: 80px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.calendar-day .date-num {
+  font-weight: 600;
+}
+
+.calendar-day.has-event::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+}
+
+.calendar-day.other-month {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.calendar-day.header {
+  background: none;
+  color: var(--accent-color);
+  cursor: default;
+  font-weight: bold;
+}
+
+.calendar-day:hover:not(.header):not(.other-month) {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+.calendar-event-list {
+  margin-top: 2rem;
+}
+
+.calendar-event-list h4 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.calendar-event-list .event-item {
+  background-color: var(--surface-color);
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+}
+
+/* Reminder checklist styles. */
+#reminder-list {
+  list-style: none;
+  padding: 0;
+}
+
+.reminder-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background-color: var(--surface-color);
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.reminder-item.completed {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.reminder-item input[type="checkbox"] {
+  accent-color: var(--primary-color);
+  transform: scale(1.3);
+}
+
+#clear-completed {
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s;
+}
+
+#clear-completed:hover {
+  background-color: var(--primary-color);
+}
+
+/* Resources page styles. */
+.resources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.resource-category {
+  flex: 1 1 300px;
+  background-color: var(--surface-color);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.resource-category h3 {
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+.resource-category ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resource-category li {
+  margin: 0.5rem 0;
+}
+
+.resource-category a {
+  color: var(--accent-color);
+}
+
+.resource-category a:hover {
+  text-decoration: underline;
+}
+
+/* Directory page styles.  Uses a grid to display member cards. */
+.search-bar {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.search-bar input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.6rem;
+  border-radius: var(--radius);
+  border: none;
+  background-color: var(--surface-color);
+  color: var(--text-color);
+}
+
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.member-card {
+  background-color: var(--surface-color);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.3s;
+}
+
+.member-card:hover {
+  transform: translateY(-5px);
+}
+
+.member-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--background-color);
+  flex-shrink: 0;
+}
+
+.member-details h4 {
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.member-details p {
+  margin: 0.2rem 0;
+  font-size: 0.85rem;
+  color: var(--muted-text-color);
+}
+
+/* Council page uses similar card layout but vertical orientation with biography toggle. */
+.council-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.council-card {
+  background-color: var(--surface-color);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: transform 0.3s;
+}
+
+.council-card:hover {
+  transform: translateY(-5px);
+}
+
+.council-card .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-weight: bold;
+  color: var(--background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.council-card h4 {
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.council-card .role {
+  font-size: 0.9rem;
+  color: var(--accent-color);
+}
+
+.council-card .bio {
+  font-size: 0.85rem;
+  color: var(--muted-text-color);
+  display: none;
+  line-height: 1.4;
+}
+
+.council-card.expanded .bio {
+  display: block;
+}
+
+.council-card button {
+  align-self: center;
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  border: 1px solid var(--primary-color);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.council-card button:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+/* Footer styling. */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 4rem;
+  background-color: var(--surface-color);
+  color: var(--muted-text-color);
+  font-size: 0.8rem;
+}
