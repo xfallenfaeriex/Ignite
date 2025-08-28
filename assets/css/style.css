@@ -627,5 +627,19 @@ footer {
 
 /* Use Damien Gothic for headings and logo */
 h1, h2, h3, .logo {
+  
+  
+  
   font-family: 'Damien Gothic', 'Poppins', sans-serif;
+}
+
+/* Display the Ignite logo as background image for nav logo */
+.logo a {
+  display: inline-block;
+  width: 180px;
+  height: 60px;
+  background-image: url('../../IgniteLogo_color.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
 }
