@@ -603,3 +603,38 @@ footer {
   color: var(--muted-text-color);
   font-size: 0.8rem;
 }
+/* Ignite color palette and font overrides */
+@font-face {
+  font-family: 'Damien Gothic';
+  src: url('../../../Damien Gothic.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Override root color variables to match guild palette */
+:root {
+  --primary-color: #eb7100;
+  --secondary-color: #9245ac;
+  --accent-color: #be1348;
+  --highlight-color: #ffc255;
+  --background-color: #1f1f1f;
+  --surface-color: #292929;
+  --text-color: #f4ecdc;
+  --muted-text-color: #99c2b1;
+}
+
+/* Use Damien Gothic for headings and logo */
+h1, h2, h3, .logo {
+  font-family: 'Damien Gothic', 'Poppins', sans-serif;
+}
+
+/* Display the Ignite logo as background image for nav logo */
+.logo a {
+  display: inline-block;
+  width: 180px;
+  height: 60px;
+  background-image: url('../../../IgniteLogo_color.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+}
